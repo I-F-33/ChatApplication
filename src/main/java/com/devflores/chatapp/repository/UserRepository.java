@@ -12,6 +12,7 @@ public class UserRepository {
 	private List<User> users;
 	
 	public User saveUser(User user) {
+		user.setUserId(users.size() + 1);
 		users.add(user);
 		return user;
 	}
@@ -20,5 +21,7 @@ public class UserRepository {
 		return users.contains(user);
 	}
 	
-	
+	public User fetchUserById (Integer userId) {
+		return users.get(userId-1);
+	}
 }

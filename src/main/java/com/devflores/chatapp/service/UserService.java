@@ -13,10 +13,17 @@ public class UserService {
 	private UserRepository userRepo;
 	
 	public User saveuser(User user) {
+		user.get
 		return userRepo.saveUser(user);
 	}
 
 	public Boolean checkIfUserExists (User user) {
 		return userRepo.checkIfExists(user);
 	}
+	
+	public User fetchUserbyId(Integer userId) {
+		
+		
+	}
 }
+
