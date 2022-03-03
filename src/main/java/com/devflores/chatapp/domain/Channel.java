@@ -2,17 +2,20 @@ package com.devflores.chatapp.domain;
 
 import java.util.List;
 
-public class channel {
+import javax.persistence.Entity;
 
-	private Integer ChannelId;
+@Entity
+public class Channel {
+
+	private Integer channelId;
 	private String channelName;
 	private List<Message> messages;
 	
 	public Integer getChannelId() {
-		return ChannelId;
+		return channelId;
 	}
 	public void setChannelId(Integer channelId) {
-		ChannelId = channelId;
+		this.channelId = channelId;
 	}
 	public String getChannelName() {
 		return channelName;

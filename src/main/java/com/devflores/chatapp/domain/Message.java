@@ -1,14 +1,25 @@
 package com.devflores.chatapp.domain;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Message {
 
-	private String text;
-
-	public String getText() {
-		return text;
+	private Integer channelId;
+	private String messageText;
+	
+	public Integer getChannelId() {
+		return channelId;
+	}
+	public void setChannelId(Integer channelId) {
+		this.channelId = channelId;
+	}
+	public String getMessageText() {
+		return messageText;
+	}
+	public void setMessageText(String messageText) {
+		this.messageText = messageText;
 	}
 
-	public void setText(String text) {
-		this.text = text;
-	}
+	
 }
