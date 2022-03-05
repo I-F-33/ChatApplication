@@ -1,8 +1,6 @@
 package com.devflores.chatapp.domain;
 
-import javax.persistence.Entity;
 
-@Entity
 public class Message {
 
 	private Integer channelId;

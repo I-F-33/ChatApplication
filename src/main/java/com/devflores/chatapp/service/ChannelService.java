@@ -1,6 +1,6 @@
 package com.devflores.chatapp.service;
 
-import java.util.Set;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ public class ChannelService {
 	@Autowired
 	private ChannelRepository channelRepo;
 	
-	public Set<Channel> fetchAllChannels () {
+	public List<Channel> fetchAllChannels () {
 		return channelRepo.fetchAllChannels();
 	}
 	public void createGeneralChannel () {

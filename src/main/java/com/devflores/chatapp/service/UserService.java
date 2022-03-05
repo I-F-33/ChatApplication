@@ -13,7 +13,6 @@ public class UserService {
 	private UserRepository userRepo;
 	
 	public User saveuser(User user) {
-		user.get
 		return userRepo.saveUser(user);
 	}
 
@@ -23,7 +22,7 @@ public class UserService {
 	
 	public User fetchUserbyId(Integer userId) {
 		
-		
+		return new User();
 	}
 }
 

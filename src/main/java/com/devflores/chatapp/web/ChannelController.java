@@ -2,7 +2,7 @@ package com.devflores.chatapp.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -20,18 +20,17 @@ public class ChannelController {
 	private ChannelService channelService;
 	
 	@GetMapping("/welcome")
-	public String displayWelcomePage(Model modelMap) {
-		if (channelService.fetchAllChannels() == null) {
-			channelService.createGeneralChannel();
-		}
-		userService.fetchUserbyId(null)
-		modelMap.addAttribute("user", );
+	public String displayWelcomePage(ModelMap model) {
+		 if (channelService.fetchAllChannels().size() == 0) {
+			 channelService.createGeneralChannel();
+		 }
+		 model.addAttribute("channels", channelService.fetchAllChannels());
 		return "welcome";
 	}
 	
 	@PostMapping("/welcome")
 	public String postUserToDatabase (User user) {
-		User savedUser = userService.saveuser(user);
+		userService.saveuser(user);
 		 return "redirect:/welcome";
 	}
 	

@@ -2,14 +2,13 @@ package com.devflores.chatapp.domain;
 
 import java.util.List;
 
-import javax.persistence.Entity;
 
-@Entity
 public class Channel {
 
 	private Integer channelId;
 	private String channelName;
 	private List<Message> messages;
+	private List<User> users;
 	
 	public Integer getChannelId() {
 		return channelId;
@@ -28,5 +27,11 @@ public class Channel {
 	}
 	public void setMessages(List<Message> messages) {
 		this.messages = messages;
+	}
+	public List<User> getUsers() {
+		return users;
+	}
+	public void setUsers(List<User> users) {
+		this.users = users;
 	} 
 }

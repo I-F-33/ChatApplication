@@ -14,17 +14,19 @@ import com.devflores.chatapp.domain.User;
 @Repository
 public class ChannelRepository {
 
-	private Map<Channel, List<Message>> channelRepo;
+	private List<Channel> channelRepo = new ArrayList<>();;
+	Integer idCounter = 1;
 
-	private void setGeneralChannel () {
+	public void setGeneralChannel () {
 		Channel generalChannel = new Channel();
-		generalChannel.setChannelId(channelRepo.size()+ 1);
+		generalChannel.setChannelId(idCounter++);
 		generalChannel.setChannelName("General");
 		List<Message> generalMessages = new ArrayList<>();
-		channelRepo.put(generalChannel, generalMessages);
+		generalChannel.setMessages(generalMessages);
+		channelRepo.add(generalChannel);
 	}
-	public Set<Channel> fetchAllChannels () {
-		return channelRepo.keySet();
+	public List<Channel> fetchAllChannels () {
+		return channelRepo;
 				   
 	}
 

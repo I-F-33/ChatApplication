@@ -2,13 +2,36 @@
 <html xmlns:th=http://thymeleaf.org>
 <head>
 	<title>ChatMaster</title>
+	<script type="text/javascript">
+	var userName = prompt('Hey! What is your name?')
+	while (userName === '') {
+		userName = prompt('Hey! What is your name?')
+	}
+	sessionStorage.setItem('user', userName);
+		user = {
+				'userName' : userName
+		}
+		
+		fetch('/welcome', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(user)
+		})
+		.then( (userEntity) => userEntity.json())
+		.then( (userName => {
+			console.log('Success:', userName);
+		}))
+
+	</script>
 </head>
 <body>
 	<div>
 		<h1>Join A Channel</h1>
 	</div>
-	<div>
-	  	<span th:text="${channel.name}"></span>
+	<div th:each="channel : ${channels}">
+	  	<a></a>
 	</div>
 	<script type="text/javascript" src="/js/welcome.js"></script>
 </body>
