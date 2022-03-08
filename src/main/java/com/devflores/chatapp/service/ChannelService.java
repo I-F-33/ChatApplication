@@ -17,8 +17,12 @@ public class ChannelService {
 	public List<Channel> fetchAllChannels () {
 		return channelRepo.fetchAllChannels();
 	}
-	public void createGeneralChannel () {
-		channelRepo.setGeneralChannel();
+	public Channel createGeneralChannel () {
+		return channelRepo.setGeneralChannel();
 	}
+	public Channel createNewChannel(Channel channel) {
+		return channelRepo.createNewChannel(channel);
+	}
+	
 	
 }

@@ -17,18 +17,27 @@ public class ChannelRepository {
 	private List<Channel> channelRepo = new ArrayList<>();;
 	Integer idCounter = 1;
 
-	public void setGeneralChannel () {
+	public Channel setGeneralChannel () {
 		Channel generalChannel = new Channel();
 		generalChannel.setChannelId(idCounter++);
 		generalChannel.setChannelName("General");
-		List<Message> generalMessages = new ArrayList<>();
-		generalChannel.setMessages(generalMessages);
 		channelRepo.add(generalChannel);
+		return generalChannel;
 	}
 	public List<Channel> fetchAllChannels () {
 		return channelRepo;
 				   
 	}
+	
+	public Channel createNewChannel(Channel channel) {
+		channel.setChannelId(idCounter++);
+		List<Message> messages = new ArrayList<>();
+		channel.setMessages(messages);
+		channelRepo.add(channel);
+		return channel;
+	}
+	
+	
 
 
 	
