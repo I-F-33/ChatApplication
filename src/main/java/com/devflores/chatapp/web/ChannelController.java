@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.devflores.chatapp.domain.Channel;
 import com.devflores.chatapp.domain.User;
@@ -37,13 +38,14 @@ public class ChannelController {
 		return "welcome";
 	}
 	
-	@PostMapping("/welcome")
-	public String postUserToDatabase (@RequestBody User user) {
-		userService.saveuser(user);
-		 return "redirect:/welcome";
+	@PostMapping("/welcome/createNewUser")
+	@ResponseBody
+	public User postUserToDatabase (@RequestBody User user) {
+		return userService.saveuser(user);
+		
 	}
 	
-	@PostMapping("/welcome/creteNewChannel")
+	@PostMapping("/welcome/createNewChannel")
 	public String createNewChannel(Channel channel) {
 		channelService.createNewChannel(channel);
 		return "redirect:/welcome";

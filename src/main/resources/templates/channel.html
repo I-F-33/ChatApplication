@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html xmlns:th = http://Thymeleaf.org>
+<html xmlns:th=http://Thymeleaf.org>
 <head>
   <title>ChatMaster</title>
+  <script>
+      user = sessionStorage.getItem('user')
+      if(user.userName === null) {
+          window.location.replace("/welcome")
+      }
+  </script>
 </head>
 <body>
-  <div>
-  	<h1>Join A Channel</h1>
-  </div>
-  <br/>
-  	<div>
-  	
-  	</div>
+    <div id="messageCenter">
+    </div>
+    <div>
+        <label for="chatMaster">Enter message:</label>
+        <textarea name="chatMaster" id="messageCreation" cols="50" rows="4"></textarea>
+        <br>
+        <input id="submitButton" type="button" value="Submit"/>
+    </div>
 </body>
 </html>
